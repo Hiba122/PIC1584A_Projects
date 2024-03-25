@@ -1,0 +1,23 @@
+#include p16f84a.inc                ; Include register definition file
+
+
+      ; Reset Vector
+RST   code  0x0 
+      goto  Start
+
+PGM   code
+Start  
+	bsf STATUS, RP0 
+	bcf TRISA,0     ; set the port 0 to 0(output); or movlw 01h  movwf TRISA 
+	bcf STATUS, RP0
+	movlw 01h
+	movwf PORTA
+	
+ 	
+
+      
+Loop  
+      goto  Loop
+
+;====================================================================
+      END
